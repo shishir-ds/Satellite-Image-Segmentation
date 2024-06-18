@@ -1,0 +1,23 @@
+FROM pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime
+
+# Set the working directory inside the container
+WORKDIR /segment_anything_geospatial
+
+
+RUN pip install uvicorn 
+
+
+# Expose port 8888 for Jupyter Notebook
+EXPOSE 8888
+
+
+### sudo docker build -t sam_torch_docker_image -f sam_torch_docker_image .
+
+#### sudo docker run --gpus all -p 164.52.214.104:1900:8888 -v /data1/shishir/satellite_imaging/:/satellite_imaging -it -u root sam_torch_docker_image 
+
+#### ctrl P + ctrl Q   --- to quit such that docker is not stopped
+
+
+### to run  a new notebook : jupyter notebook --allow-root --NotebookApp.notebook_dir=/satellite_imaging --ip=0.0.0.0
+
+
